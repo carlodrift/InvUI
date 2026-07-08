@@ -12,6 +12,14 @@ Supports all versions from 1.14.0 to 26.2.
 Check out the [InvUI Documentation](https://docs.xenondevs.xyz/invui1/) to learn more.  
 If you have any questions, feel free to ask them in [GitHub Discussions](https://github.com/carlodrift/InvUI/discussions).
 
+## Why this fork exists
+
+Upstream InvUI dropped multi-version support at **v2**: each v2 release targets only the latest Minecraft version, and its API is not backwards-compatible with v1 (which is now end-of-life at 1.49).
+
+The result is a hard split at Minecraft 26: because the v2 API is incompatible with v1, your own GUI code written on top of InvUI can no longer be shared across your projects. Plugins targeting 26+ would use the v2 API, plugins targeting ≤1.21.11 would use the v1 API, so any shared menus, components, or framework code you build would have to be written and maintained twice.
+
+**This fork keeps one API for every version.** It continues the v1 API and extends the same library up to the latest Minecraft (26.2), so your GUI code compiles and runs unchanged from **1.14.0 to 26+**.
+
 ## Features
 
 * Different types of inventories (Chest, Anvil, Cartography Table, Dropper...)
