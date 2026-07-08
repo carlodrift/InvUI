@@ -9,8 +9,8 @@
 An Inventory API for Minecraft Spigot servers.  
 Supports all versions from 1.14.0 to 26.2.
 
-Check out the [InvUI Documentation](https://docs.xenondevs.xyz/invui/) to learn more.  
-If you have any questions, feel free to join the [Discord](https://discord.com/invite/EpVMXtXB2t) or ask them in [GitHub Discussions](https://github.com/NichtStudioCode/InvUI/discussions).
+Check out the [InvUI Documentation](https://docs.xenondevs.xyz/invui1/) to learn more.  
+If you have any questions, feel free to ask them in [GitHub Discussions](https://github.com/carlodrift/InvUI/discussions).
 
 ## Features
 
@@ -44,7 +44,7 @@ If you have any questions, feel free to join the [Discord](https://discord.com/i
 </dependency>
 ```
 
-Check out the [InvUI documentation](https://xenondevs.xyz/docs/invui/) for more information.
+Check out the [InvUI documentation](https://docs.xenondevs.xyz/invui1/) for more information.
 
 ## Examples
 
