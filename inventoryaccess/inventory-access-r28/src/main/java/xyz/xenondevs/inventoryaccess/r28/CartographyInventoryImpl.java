@@ -26,10 +26,12 @@ import java.lang.reflect.Field;
 
 class CartographyInventoryImpl extends CartographyTableMenu implements CartographyInventory {
     
+    // Minecraft 26.1+ is natively Mojang-mapped, so the Mojang field name is the runtime name
+    // and no SRF(...) string-remapper placeholder is needed here.
     private static final Field RESULT_CONTAINER_FIELD = ReflectionUtils.getField(
         CartographyTableMenu.class,
         true,
-        "SRF(net.minecraft.world.inventory.CartographyTableMenu resultContainer)"
+        "resultContainer"
     );
     
     private final ResultContainer resultContainer = ReflectionUtils.getFieldValue(RESULT_CONTAINER_FIELD, this);
