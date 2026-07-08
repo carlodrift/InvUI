@@ -5,6 +5,8 @@ import xyz.xenondevs.inventoryaccess.util.VersionUtils;
 public enum InventoryAccessRevision {
     
     // this order is required
+    R28("r28", "26.2"),
+    R27("r27", "26.1"),
     R26("r26", "1.21.11"),
     R25("r25", "1.21.9"),
     R24("r24", "1.21.6"),

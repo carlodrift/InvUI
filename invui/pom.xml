@@ -153,6 +153,16 @@
             <artifactId>inventory-access-r26</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>xyz.xenondevs.invui</groupId>
+            <artifactId>inventory-access-r27</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>xyz.xenondevs.invui</groupId>
+            <artifactId>inventory-access-r28</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
