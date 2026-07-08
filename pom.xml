@@ -11,6 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <legacy.inventory-access.version>1.49</legacy.inventory-access.version>
     </properties>
 
     <profiles>
@@ -45,6 +46,10 @@
             <id>codemc-maven-public</id>
             <url>https://repo.codemc.org/repository/maven-public/</url>
         </repository>
+        <repository>
+            <id>xenondevs</id>
+            <url>https://repo.xenondevs.xyz/releases</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -63,31 +68,6 @@
 
     <modules>
         <module>inventoryaccess/inventory-access</module>
-        <module>inventoryaccess/inventory-access-r1</module>
-        <module>inventoryaccess/inventory-access-r2</module>
-        <module>inventoryaccess/inventory-access-r3</module>
-        <module>inventoryaccess/inventory-access-r4</module>
-        <module>inventoryaccess/inventory-access-r5</module>
-        <module>inventoryaccess/inventory-access-r6</module>
-        <module>inventoryaccess/inventory-access-r7</module>
-        <module>inventoryaccess/inventory-access-r8</module>
-        <module>inventoryaccess/inventory-access-r9</module>
-        <module>inventoryaccess/inventory-access-r10</module>
-        <module>inventoryaccess/inventory-access-r11</module>
-        <module>inventoryaccess/inventory-access-r12</module>
-        <module>inventoryaccess/inventory-access-r13</module>
-        <module>inventoryaccess/inventory-access-r14</module>
-        <module>inventoryaccess/inventory-access-r15</module>
-        <module>inventoryaccess/inventory-access-r16</module>
-        <module>inventoryaccess/inventory-access-r17</module>
-        <module>inventoryaccess/inventory-access-r18</module>
-        <module>inventoryaccess/inventory-access-r19</module>
-        <module>inventoryaccess/inventory-access-r20</module>
-        <module>inventoryaccess/inventory-access-r21</module>
-        <module>inventoryaccess/inventory-access-r22</module>
-        <module>inventoryaccess/inventory-access-r23</module>
-        <module>inventoryaccess/inventory-access-r24</module>
-        <module>inventoryaccess/inventory-access-r25</module>
         <module>inventoryaccess/inventory-access-r26</module>
         <module>inventoryaccess/inventory-access-r27</module>
         <module>inventoryaccess/inventory-access-r28</module>
