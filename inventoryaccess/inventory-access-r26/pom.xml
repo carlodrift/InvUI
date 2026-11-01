@@ -37,6 +37,41 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.8.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-string-remapper-mappings</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.spigotmc</groupId>
+                                    <artifactId>minecraft-server</artifactId>
+                                    <version>${spigot.version}</version>
+                                    <classifier>maps-mojang</classifier>
+                                    <type>txt</type>
+                                    <destFileName>maps-mojang.txt</destFileName>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.spigotmc</groupId>
+                                    <artifactId>minecraft-server</artifactId>
+                                    <version>${spigot.version}</version>
+                                    <classifier>maps-spigot</classifier>
+                                    <type>csrg</type>
+                                    <destFileName>maps-spigot.csrg</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>xyz.xenondevs.string-remapper</groupId>
                 <artifactId>string-remapper-maven-plugin</artifactId>
                 <version>1.9</version>
