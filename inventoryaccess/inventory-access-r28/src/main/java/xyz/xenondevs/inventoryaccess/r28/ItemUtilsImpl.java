@@ -5,6 +5,7 @@ import com.mojang.serialization.Dynamic;
 import net.minecraft.nbt.*;
 import net.minecraft.util.datafix.DataFixers;
 import net.minecraft.util.datafix.fixes.References;
+import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ResolvableProfile;
 import org.bukkit.craftbukkit.CraftRegistry;
@@ -18,11 +19,26 @@ import xyz.xenondevs.inventoryaccess.util.ReflectionRegistry;
 import xyz.xenondevs.inventoryaccess.util.ReflectionUtils;
 
 import java.io.*;
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.stream.Collectors;
 
 class ItemUtilsImpl implements ItemUtils {
-    
+
+    // NMS -> Bukkit ItemStack conversion. Spigot has CraftItemStack.asCraftMirror(ItemStack) on all of 26.x,
+    // but Paper 26.3 removed it, leaving only asBukkitCopy(ItemInstance), which Spigot does not have.
+    // No single call links on both servers, so resolve whichever one this server provides.
+    private static final Method NMS_TO_BUKKIT_METHOD = findNmsToBukkitMethod();
+
+    private static Method findNmsToBukkitMethod() {
+        Method method = ReflectionUtils.getMethodOrNull(CraftItemStack.class, false, "asCraftMirror", ItemStack.class);
+        if (method == null)
+            method = ReflectionUtils.getMethodOrNull(CraftItemStack.class, false, "asBukkitCopy", ItemInstance.class);
+        if (method == null)
+            throw new IllegalStateException("CraftItemStack has neither asCraftMirror(ItemStack) nor asBukkitCopy(ItemInstance)");
+        return method;
+    }
+
     @Override
     public byte[] serializeItemStack(org.bukkit.inventory.@NotNull ItemStack itemStack, boolean compressed) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -86,7 +102,7 @@ class ItemUtilsImpl implements ItemUtils {
                 CraftRegistry.getMinecraftRegistry().createSerializationContext(NbtOps.INSTANCE),
                 converted.getValue()
             ).resultOrPartial().orElse(ItemStack.EMPTY);
-            return CraftItemStack.asCraftMirror(itemStack);
+            return ReflectionUtils.invokeMethod(NMS_TO_BUKKIT_METHOD, null, itemStack);
         } catch (IOException e) {
             e.printStackTrace();
         }
